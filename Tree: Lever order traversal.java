@@ -1,3 +1,9 @@
+/*
+    Author:- Rana Ankit Singh
+    
+    About:-  Function for level order traversal of a binary tree using Queue
+*/
+
 public static void levelOrder(Node root) {
         if(root == null){
             return;
