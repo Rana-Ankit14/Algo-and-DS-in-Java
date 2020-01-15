@@ -1,3 +1,8 @@
+/*
+    Author:- Rana Ankit Singh
+    
+    About:- Implementation of merge sort in Java
+*/
 public class merge {
     public static void main(String[] args) {
         int arr[]={10,9,8,7,6,5,4,3,2,1};
