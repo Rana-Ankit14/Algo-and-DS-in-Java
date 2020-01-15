@@ -1,0 +1,52 @@
+/*
+    Author:- Rana Ankit Singh
+
+    About:- Calculate the minimum coins need for the change of a large value
+            This program uses dynamic programming tabulation method to find the minimum number
+            of coins.
+ */
+import java.util.Arrays;
+import java.util.Scanner;
+
+  public class coinChange {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int coins[]={1,3,4};
+
+        int n=sc.nextInt();
+
+        int changes[]=new int[n+1];
+
+        Arrays.fill(changes,-1);
+        changes[0]=0;
+        coinChange obj= new coinChange();
+
+        System.out.println(obj.change(coins,n,changes));
+
+    }
+
+    private int change(int coins[],int n,int changes[]){
+
+        for(int i=1;i<=n;i++){
+            int j=0;
+            while(j<coins.length){
+                if(coins[j]>i){
+                    break;
+                }
+                int remain= i-coins[j];
+
+                changes[i]=(changes[i]==-1)?(1+changes[remain]):Math.min(changes[i],1+changes[remain]);
+
+                /*
+
+                changes[i]=(changes[i]==-1)?(1+changes[i-coins[j]]):Math.min(changes[i],1+changes[i-coins[j]]);
+
+                 */
+
+                j++;
+            }
+        }
+
+        return changes[n];
+    }
+}
